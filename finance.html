@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <style type="text/css">
+        #center {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+
+        .button {
+            background-color: gray;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+
+            font-size: 20px;
+            float: right;
+        }
+
+        fieldset {
+            border: 1px solid #ddd !important;
+            margin: 0;
+            padding: 10px;
+            position: relative;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            padding-left: 10px !important;
+        }
+
+        legend {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 0px;
+            width: 35%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px 5px 5px 10px;
+            background-color: #ffffff;
+        }
+ 
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+ button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Binary admin</a>
+            </div>
+            <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> <a href="./index.html" class="btn btn-danger square-btn-adjust">Logout</a>
+            </div>
+        </nav>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="text-center">
+                        <img src="assets/img/find_user.png" class="user-image img-responsive" />
+                    </li>
+
+
+                    <li>
+                            <a   href="index.html"><i class="fa fa-dashboard fa-3x"></i> Acceuil</a>
+                        </li>
+                         <li>
+                            <a  href="Formation.html"><i class="fa fa-desktop fa-3x"></i> Formation</a>
+                        </li>
+                        <li>
+                            <a  href="Personnel.html"><i class="fa fa-qrcode fa-3x"></i> Personnels</a>
+                        </li>	
+                          <li  >
+                                <a class="active-menu" href="Condidats.html"><i class="fa fa-table fa-3x"></i> Condidats</a>
+                            </li>
+                        <li  >
+                            <a  href="#"><i class="fa fa-edit fa-3x"></i> Finance </a>
+                        </li>	
+                        <li>
+                                <a href="conge.html"><i class="fa fa-edit fa-3x"></i> Conge </a>
+                            </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <fieldset>
+                    <legend>Ajout Condidat:</legend>
+                    <div class="row">
+                        <div>
+                           
+                                <div class="tab">
+                                    <button class="tablinks" onclick="openCity(event, 'condidat')">Condidats</button>
+                                    <button class="tablinks" onclick="openCity(event, 'personnel')">Personnels</button>
+              
+                                  </div>
+                                  
+                                  <div id="condidat" class="tabcontent">
+                                    <h3>Condidat</h3>
+                                    <div class="form-group"> 
+                                        <select class="form-control">
+                                             <option>Select Condidat </option>
+                                            <option>Coash One </option>
+                                            <option>Coash Two  </option>
+                                            <option>Coash Three  </option>
+                                            <option>Coash Four  </option>
+                                        </select>
+                                    </div>
+                                
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">Dt</span>
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-addon">.00</span>
+                                    </div>
+                                    <button type="reset" class="btn btn-primary">Annuler</button>
+    
+                                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                                  </div>
+                                  
+                                  <div id="personnel" class="tabcontent">
+                                    <h3>Personnel</h3>
+                                    <div class="form-group"> 
+                                        <select class="form-control">
+                                             <option>Select Personnel </option>
+                                            <option>Coash One </option>
+                                            <option>Coash Two  </option>
+                                            <option>Coash Three  </option>
+                                            <option>Coash Four  </option>
+                                        </select>
+                                    </div>
+                                
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">Dt</span>
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-addon">.00</span>
+                                    </div>
+                                    <button type="reset" class="btn btn-primary">Annuler</button>
+    
+                                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                                  </div>
+                                  
+                             
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <!-- /. WRAPPER  -->
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        <script src="assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- METISMENU SCRIPTS -->
+        <script src="assets/js/jquery.metisMenu.js"></script>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="assets/js/custom.js"></script>
+        <script>
+            function openCity(evt, cityName) {
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent");
+              for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(cityName).style.display = "block";
+              evt.currentTarget.className += " active";
+            }
+            </script>
+
+
+</body>
+
+</html>

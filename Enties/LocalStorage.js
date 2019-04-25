@@ -1,5 +1,7 @@
  var ERP={
     Formation :  [],
     Manager:[],
-    Condidat:[]
+    Condidat:[],
+    Coash:[],
+    Conge:[]
 } 

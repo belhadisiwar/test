@@ -53,48 +53,10 @@
             padding: 5px 5px 5px 10px;
             background-color: #ffffff;
         }
- 
-
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons inside the tab */
- button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-</style>
+    </style>
 </head>
 
-<body>
+<body onload ="remplir()">
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -151,59 +113,49 @@ font-size: 16px;"> <a href="./index.html" class="btn btn-danger square-btn-adjus
                 <fieldset>
                     <legend>Ajout Candidat:</legend>
                     <div class="row">
-                        <div>
-                           
-                                <div class="tab">
-                                    <button class="tablinks" onclick="openCity(event, 'candidat')">Candidats</button>
-                                    <button class="tablinks" onclick="openCity(event, 'personnel')">Personnels</button>
-              
-                                  </div>
-                                  
-                                  <div id="candidat" class="tabcontent">
-                                    <h3>Candidat</h3>
-                                    <div class="form-group"> 
-                                        <select class="form-control">
-                                             <option>Select Candidat </option>
-                                            <option>Coash One </option>
-                                            <option>Coash Two  </option>
-                                            <option>Coash Three  </option>
-                                            <option>Coash Four  </option>
-                                        </select>
+                        <div id="center">
+                            <form role="form">
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user icon"></i></span>
+                                    <input type="text" class="form-control" placeholder="Nom" id="nomc">
+                                </div>
+                                <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user icon"></i></span>
+                                        <input type="text" class="form-control" placeholder="Prenom" id="prenomc">
                                     </div>
-                                
+                                <div class="form-group input-group">
+                                        <span class="input-group-addon"> <i class="fa fa-envelope icon"></i></span>
+                                        <input class="form-control" type="email" placeholder="Email" id="emailc">
+                                      </div>
+                                      <div class="form-group input-group">
+                                            <span class="input-group-addon"> <i class="fa fa-phone"></i></span>
+                                            <input class="form-control" type="tel" id="telc">
+                                          </div>
+                                   
                                     <div class="form-group input-group">
-                                        <span class="input-group-addon">Dt</span>
-                                        <input type="text" class="form-control">
-                                        <span class="input-group-addon">.00</span>
-                                    </div>
-                                    <button type="reset" class="btn btn-primary">Annuler</button>
-    
-                                    <button type="submit" class="btn btn-primary">Ajouter</button>
-                                  </div>
-                                  
-                                  <div id="personnel" class="tabcontent">
-                                    <h3>Personnel</h3>
-                                    <div class="form-group"> 
-                                        <select class="form-control">
-                                             <option>Select Personnel </option>
-                                            <option>Coash One </option>
-                                            <option>Coash Two  </option>
-                                            <option>Coash Three  </option>
-                                            <option>Coash Four  </option>
-                                        </select>
-                                    </div>
-                                
-                                    <div class="form-group input-group">
-                                        <span class="input-group-addon">Dt</span>
-                                        <input type="text" class="form-control">
-                                        <span class="input-group-addon">.00</span>
-                                    </div>
-                                    <button type="reset" class="btn btn-primary">Annuler</button>
-    
-                                    <button type="submit" class="btn btn-primary">Ajouter</button>
-                                  </div>
-                                  
-                             
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                                            <input type="text" class="form-control" placeholder="Addresse" id="addrc">        
+                                        </textarea> 
+                                        </div>
+                                        <form id="myform" method="post">
+                                            <!-- <div class="form-group">  -->
+                                                <select id="levelc" class="form-control">
+                                                        <option name="checkbox" value="Select level">Select level</option>
+                                                        <option name="checkbox"value="level One">level One </option>
+                                                        <option name="checkbox" value="level Two ">level Two  </option>
+                                                        <option name="checkbox" value="level Three">level Three  </option>
+                                                        <option name="checkbox" value="level Four"> level Four  </option>
+                                                        <option name="checkbox" value="level Five">level Five  </option>
+                                                        
+                                                </select>
+                                            <!-- </div> -->
+                                            <button type="button" class="btn btn-primary"  onclick="ajoutCandidat()">Ajouter</button>
+                                            <button type="reset" class="btn btn-primary">Annuler</button>
+                                            <button type="button" class="btn btn-primary"  onclick="modif()">modifier</button>
+
+
+                                        </form>
+                            </form>
                         </div>
                     </div>
                 </fieldset>
@@ -219,24 +171,12 @@ font-size: 16px;"> <a href="./index.html" class="btn btn-danger square-btn-adjus
         <!-- METISMENU SCRIPTS -->
         <script src="assets/js/jquery.metisMenu.js"></script>
         <!-- CUSTOM SCRIPTS -->
-        <script src="assets/js/custom.js"></script>
-        <script>
-            function openCity(evt, cityName) {
-              var i, tabcontent, tablinks;
-              tabcontent = document.getElementsByClassName("tabcontent");
-              for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-              }
-              tablinks = document.getElementsByClassName("tablinks");
-              for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-              }
-              document.getElementById(cityName).style.display = "block";
-              evt.currentTarget.className += " active";
-            }
-            </script>
+        <!-- <script src="assets/js/custom.js"></script> -->
 
 
+<script src="Enties/LocalStorage.js"></script>
+<script src="Enties/Personne.js"></script>
+<script src="Enties/Candidat.js"></script>
+<script src="Metier/CandidatMetier.js"></script>
 </body>
-
 </html>

@@ -131,13 +131,9 @@ class FormationMetier {
             this.tabERP[0] = tabTemp;
             localStorage.setItem("ERP", JSON.stringify(this.tabERP));
         }
-
         location.href = './Formation.html';
-
     }
-
 }
-
 FormationMetier = new FormationMetier();
 //FormationMetier.add();
 //FormationMetier.show();

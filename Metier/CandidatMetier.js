@@ -10,15 +10,15 @@ var Candidats = {
     idc: Math.floor(Math.random() * 1000)
 }
 function ajoutCandidat() {
+    
     var tableau = JSON.parse(localStorage.getItem("ERP"));
 
     if (tableau == null) {
+       
         tableau = [];
     } else {
         ERP.Candidat = tableau[3];
     }
-
-
     Candidats.nom = document.getElementById("nomc").value;
     Candidats.prenom = document.getElementById("prenomc").value;
     Candidats.email = document.getElementById("emailc").value;
@@ -37,11 +37,17 @@ function ajoutCandidat() {
     document.getElementById("nomc").value = null;
     document.getElementById("levelc").value = null;
     document.getElementById("addrc").value = null;
+ 
 
 }
 
 function show() {
     var tableau = JSON.parse(localStorage.getItem("ERP"));
+    var udc = JSON.parse(localStorage.getItem('upd'));
+    if(udc!=null)
+    {
+        localStorage.setItem("upd", null);
+    }
     if (tableau == null) {
         tableau = [];
     } else {
@@ -88,14 +94,24 @@ function modif(){
             element.tel = document.getElementById("telc").value;
             element.adress = document.getElementById("addrc").value;
             element.level = document.getElementById("levelc").value;
-
-           
         }
+        localStorage.setItem("upd", null);
     });
     localStorage.setItem("ERP", JSON.stringify(tab));
+  
+
 }
 function remplir() {
     var udc = JSON.parse(localStorage.getItem('upd'));
+    if(udc!=null)
+    {
+        document.getElementById("modif").style.visibility="visible";
+        document.getElementById("ajout").style.visibility="hidden";
+    }
+    else{
+        document.getElementById("modif").style.visibility="hidden";
+        document.getElementById("ajout").style.visibility="visible";
+    }
     var tab = JSON.parse(localStorage.getItem('ERP'));
   console.log(tab)
     tab[3].forEach(element => {
@@ -108,6 +124,7 @@ function remplir() {
             document.getElementById("addrc").value = element.adress;
             document.getElementById("levelc").value = element.level;
         }
+        
     });
     
 }

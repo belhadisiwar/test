@@ -36,7 +36,11 @@ ERP.Candidat.push(Candidats)
     document.getElementById("nomc").value = null;
     document.getElementById("levelc").value = null;
     document.getElementById("addrc").value = null;
+<<<<<<< HEAD
 location.href="./Candidats.html";
+=======
+location.href="file:///C:/Users/Media%20Services/Desktop/Git/ProjectFivePoints/Candidats.html";
+>>>>>>> c533712b39e16884669e280da3acbbd17e0b0988
 }
 function show() {
     var tableau = JSON.parse(localStorage.getItem("ERP"));
@@ -105,7 +109,11 @@ function modif(){
         }
     });
     localStorage.setItem("ERP", JSON.stringify(tab));
+<<<<<<< HEAD
     location.href="./Candidats.html";
+=======
+    location.href="file:///C:/Users/Media%20Services/Desktop/Git/ProjectFivePoints/Candidats.html";
+>>>>>>> c533712b39e16884669e280da3acbbd17e0b0988
 
 }
 function remplir() {
@@ -142,8 +150,19 @@ function compteur(){
 //    var nbm=tab[1].length;
 //    var nbco=tab[2].length;
    var nbcan=tab[3].length;
+<<<<<<< HEAD
 //    document.getElementById("f").innerHTML = nbf;
 //    document.getElementById("man").innerHTML=nbm;
 //    document.getElementById("co").innerHTML=nbco;
    document.getElementById("can").innerHTML=nbcan;   
+=======
+   console.log(nbcan);
+//    document.getElementById("f").innerHTML = nbf;
+//    document.getElementById("man").innerHTML=nbm;
+   document.getElementById("can").innerHTML=nbcan;
+//    document.getElementById("co").innerHTML=nbco;
+   
+    
+    
+>>>>>>> c533712b39e16884669e280da3acbbd17e0b0988
 }

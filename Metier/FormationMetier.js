@@ -16,6 +16,9 @@ class FormationMetier {
             //     ERP.Formation = this.tabERP[0];
             // }
             ERP.Formation = this.tabERP[0];
+            if (ERP.Formation == null) {
+                ERP.Formation = []
+            }
         }
 
     }
@@ -29,11 +32,12 @@ class FormationMetier {
             var descF = document.getElementById('descF').value;
           
             var Level = document.getElementById('Level').value;
-            var nomFichier = document.getElementById('nomFichier').files[0].name;
+            
             var montant = document.getElementById('montant').value;
 
 
             if (this.isUpdate == false) {
+                var nomFichier = document.getElementById('nomFichier').files[0].name;
 
                 if ((ERP.Formation).length != 0) {
                     idF = (ERP.Formation[((ERP.Formation).length) - 1].idF) + 1;
@@ -44,6 +48,7 @@ class FormationMetier {
             }
             if (this.isUpdate == true) {
                 for (let index = 0; index < ERP.Formation.length; index++) {
+                     nomFichier = ERP.Formation[index].nomFichier;
                     if (this.formatiomUpdate.idF == ERP.Formation[index].idF) {
                         this.formation = new Formation(idF, nomF, descF, nomFichier, montant,Level);
                         ERP.Formation[index] = this.formation;
@@ -54,10 +59,8 @@ class FormationMetier {
             this.tabERP[0] = ERP.Formation;
             localStorage.setItem("ERP", JSON.stringify(this.tabERP));
             this.isUpdate = false;
-
-
-
-        }
+            location.href = './Formation.html';
+}
 
     }
     show() {
@@ -67,6 +70,7 @@ class FormationMetier {
         var existNiveau1=false;
         var existNiveau2=false;
         var existNiveau3=false;
+        var existNiveau4=false
         for (let index = 0; index < ERP.Formation.length; index++) {
 
             if((ERP.Formation[index].niveau=="Level One")&&(existNiveau1==false))
@@ -99,6 +103,16 @@ class FormationMetier {
                 existNiveau2=true
 
             }
+             if((ERP.Formation[index].niveau=="Level Four")&&(existNiveau4==false))
+            {
+               
+                html += ' <div class="row" id= "N3">'
+                html += '<legend>'+ERP.Formation[index].niveau+'</legend>'
+                html += '</div>'
+                html += '</div>'
+                existNiveau2=true
+
+            }
             document.getElementById("formations").innerHTML += html;
             html = '';
         }
@@ -110,7 +124,9 @@ class FormationMetier {
             html += ERP.Formation[index].nomF
             html += '</div>'
             html += '<div class="panel-body">'
-            html += '<p>' + ERP.Formation[index].descF + '</p>'
+            html += '<p> <strong>Discription :</strong>' + ERP.Formation[index].descF + '</p>'
+            html += '<p><strong>Prix :</strong>' + ERP.Formation[index].montant + '</p>'
+            html += '<p><strong>Detail :</strong><a href="C:/Users/Aymen/Desktop/'+ERP.Formation[index].nomFichier +'">'+ ERP.Formation[index].nomFichier + '</a></p>'
             html += '<p><button onclick="FormationMetier.update(' + ERP.Formation[index].idF + ')">U</button>'
             html += '<button onclick="FormationMetier.delet(' + ERP.Formation[index].idF + ')" >D</button></p>'
             html += '</div>'
@@ -144,8 +160,7 @@ class FormationMetier {
             for (let index = 0; index < ERP.Formation.length; index++) {
                 if (idfUpdate == ERP.Formation[index].idF) {
                     localStorage.setItem("formationUpdate", JSON.stringify(ERP.Formation[index]))
-
-                    location.href = './AjoutFormation.html';
+                     location.href = './AjoutFormation.html';
                 }
             }
         }
@@ -197,9 +212,13 @@ class FormationMetier {
             this.tabERP[0] = tabTemp;
             localStorage.setItem("ERP", JSON.stringify(this.tabERP));
         }
+
         location.href = './Formation.html';
+
     }
+
 }
+
 FormationMetier = new FormationMetier();
 //FormationMetier.add();
 //FormationMetier.show();

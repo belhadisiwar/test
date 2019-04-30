@@ -47,9 +47,15 @@ fieldset
 			background-color: #ffffff;
 		}
     </style>
+            <script src="Enties/Personne.js"></script>
+            <script src="Enties/LocalStorage.js"></script>
+            <script src="Enties/Manager.js"></script>
+            <script src="Enties/Coash.js"></script>
+            <script src="Metier/ManagerMetier.js"></script>
+            <script src="Metier/coashMetier.js"></script>
 </head>
 
-<body>
+<body onload="ManagerMetier.show() ;coashMetier.show()">
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -64,7 +70,7 @@ fieldset
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="./index.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -110,55 +116,14 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="./index.html" class
                  <hr />
               <fieldset> 
                   <legend>Coash:</legend>                 
-            <div class="row">
-                    
-                  
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Default Panel
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            Panel Footer
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Primary Panel
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            Panel Footer
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            Success Panel
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            Panel Footer
-                        </div>
-                    </div>
-                </div> 
+            <div class="row" id="Coash">
             </div>
         </fieldset>
                    <!-- /. ROW  -->
                    <fieldset> 
                         <legend>Manager:</legend>
-            <div class="row">
-                <div class="col-md-4 col-sm-4">
+                <div class="row" id="Manager">
+               <!-- <div class="col-md-4 col-sm-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             Info Panel
@@ -196,10 +161,9 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="./index.html" class
                             Panel Footer
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
-        </fieldset> 
-     
+        </fieldset>                    <!-- /. ROW  -->
             
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
@@ -209,8 +173,6 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="./index.html" class
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
     
    
 </body>

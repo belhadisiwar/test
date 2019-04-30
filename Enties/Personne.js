@@ -1,6 +1,6 @@
 
 class Personne {
-      
+      selected;
     constructor(id,nom, prenom, email,tel,addrress,categorie) {
         this.id=id;
         this.nom=nom;
@@ -10,7 +10,6 @@ class Personne {
         this.address=addrress;
         this.categorie=categorie;
  }
-
+ 
 }
 
-   

@@ -10,15 +10,7 @@ var Candidats = {
     idc: Math.floor(Math.random() * 1000)
 }
 function ajoutCandidat() {
-    
     var tableau = JSON.parse(localStorage.getItem("ERP"));
-
-    if (tableau == null) {
-       
-        tableau = [];
-    } else {
-        ERP.Candidat = tableau[3];
-    }
     Candidats.nom = document.getElementById("nomc").value;
     Candidats.prenom = document.getElementById("prenomc").value;
     Candidats.email = document.getElementById("emailc").value;
@@ -27,7 +19,14 @@ function ajoutCandidat() {
     Candidats.level = document.getElementById("levelc").value;
     Candidats.adress = document.getElementById("addrc").value;
     
-    ERP.Candidat.push(Candidats)
+    if (tableau == null) {
+        tableau = []
+    }
+  ERP.Candidat = tableau[3]     
+  if (ERP.Candidat == null) {
+    ERP.Candidat = []
+}
+ERP.Candidat.push(Candidats)
     tableau[3] = ERP.Candidat;
     localStorage.setItem("ERP", JSON.stringify(tableau));
     document.getElementById("nomc").value = null;
@@ -37,17 +36,14 @@ function ajoutCandidat() {
     document.getElementById("nomc").value = null;
     document.getElementById("levelc").value = null;
     document.getElementById("addrc").value = null;
- 
-
+location.href="./Candidats.html";
 }
-
 function show() {
     var tableau = JSON.parse(localStorage.getItem("ERP"));
     var udc = JSON.parse(localStorage.getItem('upd'));
-    if(udc!=null)
-    {
-        localStorage.setItem("upd", null);
-    }
+if(udc!=null){
+    localStorage.setItem("upd", null);
+}
     if (tableau == null) {
         tableau = [];
     } else {
@@ -74,10 +70,23 @@ function show() {
         document.getElementById('listc').innerHTML = htmlc;
     }
     htmlc = '';
-    //    location.href='Candidats.html' ne fonctionne pas;
-
-
 }
+    function supprimer(){
+        var tableau=JSON.parse(localStorage.getItem('ERP'));
+        var udc=JSON.parse(localStorage.getItem("udc"));
+        if (tableau == null) {
+            tableau = [];
+        } else {
+            ERP.Candidat = tableau[3];
+        }
+        var htmlc = '';
+        htmlc += '<p><button onclick="supprimer(' + ERP.Candidat[index].idc + ')">supp</button>'
+
+        for (let index = 0; index < ERP.Candidat.length; index++) {
+            if(ERP.Candidat.idc==udc)
+        localStorage.removeItem(ERP.Candidat[index]);
+    }
+    }
 function modifier(idc) {
     localStorage.setItem('upd', idc);
     location.href = "./AjoutCandidats.html"
@@ -85,7 +94,6 @@ function modifier(idc) {
 function modif(){
     var udc = JSON.parse(localStorage.getItem('upd'));
     var tab = JSON.parse(localStorage.getItem('ERP'));
-   
     tab[3].forEach(element => {
         if (element.idc == udc) {
             element.nom = document.getElementById("nomc").value;
@@ -93,12 +101,11 @@ function modif(){
             element.email = document.getElementById("emailc").value;
             element.tel = document.getElementById("telc").value;
             element.adress = document.getElementById("addrc").value;
-            element.level = document.getElementById("levelc").value;
+            element.level = document.getElementById("levelc").value;      
         }
-        localStorage.setItem("upd", null);
     });
     localStorage.setItem("ERP", JSON.stringify(tab));
-  
+    location.href="./Candidats.html";
 
 }
 function remplir() {
@@ -113,7 +120,8 @@ function remplir() {
         document.getElementById("ajout").style.visibility="visible";
     }
     var tab = JSON.parse(localStorage.getItem('ERP'));
-  console.log(tab)
+//   console.log(tab)
+  if(tab[3]!=null){
     tab[3].forEach(element => {
         if (element.idc == udc) {
             console.log(element)
@@ -124,7 +132,18 @@ function remplir() {
             document.getElementById("addrc").value = element.adress;
             document.getElementById("levelc").value = element.level;
         }
-        
     });
-    
+    }
+}
+function compteur(){
+  
+    var tab = JSON.parse(localStorage.getItem('ERP'));
+//    var nbf=tab[0].length;
+//    var nbm=tab[1].length;
+//    var nbco=tab[2].length;
+   var nbcan=tab[3].length;
+//    document.getElementById("f").innerHTML = nbf;
+//    document.getElementById("man").innerHTML=nbm;
+//    document.getElementById("co").innerHTML=nbco;
+   document.getElementById("can").innerHTML=nbcan;   
 }

@@ -170,3 +170,4 @@ show() {
 }
     
 }
+CongeMetier = new CongeMetier();

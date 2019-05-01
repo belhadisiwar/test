@@ -18,15 +18,15 @@ function ajoutCandidat() {
     Candidats.nom = document.getElementById("nomc").value;
     Candidats.level = document.getElementById("levelc").value;
     Candidats.adress = document.getElementById("addrc").value;
-    
+
     if (tableau == null) {
         tableau = []
     }
-  ERP.Candidat = tableau[3]     
-  if (ERP.Candidat == null) {
-    ERP.Candidat = []
-}
-ERP.Candidat.push(Candidats)
+    ERP.Candidat = tableau[3]
+    if (ERP.Candidat == null) {
+        ERP.Candidat = []
+    }
+    ERP.Candidat.push(Candidats)
     tableau[3] = ERP.Candidat;
     localStorage.setItem("ERP", JSON.stringify(tableau));
     document.getElementById("nomc").value = null;
@@ -37,14 +37,14 @@ ERP.Candidat.push(Candidats)
     document.getElementById("levelc").value = null;
     document.getElementById("addrc").value = null;
 
-location.href="./Candidats.html";
+    location.href = "./Candidats.html";
 }
 function show() {
     var tableau = JSON.parse(localStorage.getItem("ERP"));
     var udc = JSON.parse(localStorage.getItem('upd'));
-if(udc!=null){
-    localStorage.setItem("upd", null);
-}
+    if (udc != null) {
+        localStorage.setItem("upd", null);
+    }
     if (tableau == null) {
         tableau = [];
     } else {
@@ -65,6 +65,8 @@ if(udc!=null){
         htmlc += '<div class="panel-footer">'
         htmlc += '<p>' + ERP.Candidat[index].tel + '</p>'
         htmlc += '<p><button onclick="modifier(' + ERP.Candidat[index].idc + ')">modif</button>'
+        htmlc += '<p><button onclick="supprimer(this)">supp</button>'
+
         htmlc += '</div>'
         htmlc += '</div>'
         htmlc += '</div>'
@@ -72,27 +74,17 @@ if(udc!=null){
     }
     htmlc = '';
 }
-    function supprimer(){
-        var tableau=JSON.parse(localStorage.getItem('ERP'));
-        var udc=JSON.parse(localStorage.getItem("udc"));
-        if (tableau == null) {
-            tableau = [];
-        } else {
-            ERP.Candidat = tableau[3];
-        }
-        var htmlc = '';
-        htmlc += '<p><button onclick="supprimer(' + ERP.Candidat[index].idc + ')">supp</button>'
-
-        for (let index = 0; index < ERP.Candidat.length; index++) {
-            if(ERP.Candidat.idc==udc)
-        localStorage.removeItem(ERP.Candidat[index]);
-    }
-    }
+function supprimer(i) {
+    var tableau = JSON.parse(localStorage.getItem('ERP'));
+    tableau[3].splice(i, 1); 
+    localStorage.setItem("ERP",JSON.stringify(tableau));
+    location.href = "./Candidats.html";
+}
 function modifier(idc) {
     localStorage.setItem('upd', idc);
     location.href = "./AjoutCandidats.html"
 }
-function modif(){
+function modif() {
     var udc = JSON.parse(localStorage.getItem('upd'));
     var tab = JSON.parse(localStorage.getItem('ERP'));
     tab[3].forEach(element => {
@@ -102,48 +94,47 @@ function modif(){
             element.email = document.getElementById("emailc").value;
             element.tel = document.getElementById("telc").value;
             element.adress = document.getElementById("addrc").value;
-            element.level = document.getElementById("levelc").value;      
+            element.level = document.getElementById("levelc").value;
         }
     });
     localStorage.setItem("ERP", JSON.stringify(tab));
-    location.href="./Candidats.html";
+    location.href = "./Candidats.html";
 }
 function remplir() {
     var udc = JSON.parse(localStorage.getItem('upd'));
-    if(udc!=null)
-    {
-        document.getElementById("modif").style.visibility="visible";
-        document.getElementById("ajout").style.visibility="hidden";
+    if (udc != null) {
+        document.getElementById("modif").style.visibility = "visible";
+        document.getElementById("ajout").style.visibility = "hidden";
     }
-    else{
-        document.getElementById("modif").style.visibility="hidden";
-        document.getElementById("ajout").style.visibility="visible";
+    else {
+        document.getElementById("modif").style.visibility = "hidden";
+        document.getElementById("ajout").style.visibility = "visible";
     }
     var tab = JSON.parse(localStorage.getItem('ERP'));
-//   console.log(tab)
-  if(tab[3]!=null){
-    tab[3].forEach(element => {
-        if (element.idc == udc) {
-            console.log(element)
-            document.getElementById("nomc").value = element.nom;
-            document.getElementById("prenomc").value = element.prenom;
-            document.getElementById("emailc").value = element.email;
-            document.getElementById("telc").value = element.tel;
-            document.getElementById("addrc").value = element.adress;
-            document.getElementById("levelc").value = element.level;
-        }
-    });
+    //   console.log(tab)
+    if (tab[3] != null) {
+        tab[3].forEach(element => {
+            if (element.idc == udc) {
+                console.log(element)
+                document.getElementById("nomc").value = element.nom;
+                document.getElementById("prenomc").value = element.prenom;
+                document.getElementById("emailc").value = element.email;
+                document.getElementById("telc").value = element.tel;
+                document.getElementById("addrc").value = element.adress;
+                document.getElementById("levelc").value = element.level;
+            }
+        });
     }
 }
-function compteur(){
-  
+function compteur() {
+
     var tab = JSON.parse(localStorage.getItem('ERP'));
-   var nbf=tab[0].length;
-   var nbm=tab[1].length;
-//    var nbco=tab[2].length;
-   var nbcan=tab[3].length;
-   document.getElementById("f").innerHTML = nbf;
-   document.getElementById("man").innerHTML=nbm;
-//    document.getElementById("co").innerHTML=nbco;
-   document.getElementById("can").innerHTML=nbcan;   
+    var nbf = tab[0].length;
+    var nbm = tab[1].length;
+       var nbco=tab[2].length;
+    var nbcan = tab[3].length;
+    document.getElementById("f").innerHTML = nbf;
+    document.getElementById("man").innerHTML = nbm;
+       document.getElementById("co").innerHTML=nbco;
+    document.getElementById("can").innerHTML = nbcan;
 }

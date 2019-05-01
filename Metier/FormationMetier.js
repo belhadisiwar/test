@@ -195,10 +195,8 @@ class FormationMetier {
             node.appendChild(lien);
             document.getElementById('montant').value = this.formatiomUpdate.montant;
             this.isUpdate = true;
-        }
-        
+        }    
     }
-
     delet(idFDelete) {
         var tabTemp = []
         for (let index = 0; index < ERP.Formation.length; index++) {
@@ -214,9 +212,7 @@ class FormationMetier {
         }
 
         location.href = './Formation.html';
-
     }
-
 }
 
 FormationMetier = new FormationMetier();

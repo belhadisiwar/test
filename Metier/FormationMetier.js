@@ -127,8 +127,8 @@ class FormationMetier {
             html += '<p> <strong>Discription :</strong>' + ERP.Formation[index].descF + '</p>'
             html += '<p><strong>Prix :</strong>' + ERP.Formation[index].montant + '</p>'
             html += '<p><strong>Detail :</strong><a href="C:/Users/Aymen/Desktop/'+ERP.Formation[index].nomFichier +'">'+ ERP.Formation[index].nomFichier + '</a></p>'
-            html += '<p><button onclick="FormationMetier.update(' + ERP.Formation[index].idF + ')">U</button>'
-            html += '<button onclick="FormationMetier.delet(' + ERP.Formation[index].idF + ')" >D</button></p>'
+            html += '<p><button class="btn btn-success btn-sm" onclick="FormationMetier.update(' + ERP.Formation[index].idF + ')"><i class="fa fa-edit "></i>modifier</button>&nbsp;'
+            html += '<button class="btn btn-danger btn-sm" onclick="FormationMetier.delet(' + ERP.Formation[index].idF + ')" ><i class="fa fa-trash"></i>supprimer</button></p>'
             html += '</div>'
             html += '<div class="panel-footer">'
             html += "Tel : 40.537.808"

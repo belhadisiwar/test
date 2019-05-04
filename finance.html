@@ -14,87 +14,12 @@
     <link href="assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <style type="text/css">
-        #center {
-            margin: auto;
-            width: 50%;
-            padding: 10px;
-        }
-
-        .button {
-            background-color: gray;
-            border: none;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            text-decoration: none;
-
-            font-size: 20px;
-            float: right;
-        }
-
-        fieldset {
-            border: 1px solid #ddd !important;
-            margin: 0;
-            padding: 10px;
-            position: relative;
-            border-radius: 4px;
-            background-color: #f5f5f5;
-            padding-left: 10px !important;
-        }
-
-        legend {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 0px;
-            width: 35%;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 5px 5px 5px 10px;
-            background-color: #ffffff;
-        }
- 
-
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons inside the tab */
- button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-</style>
+    <link rel="stylesheet" type="text/css" href="css/StyleGeneral.css">
+    <link rel="stylesheet" type="text/css" href="css/finance.css">
+    <script src="Enties/LocalStorage.js"></script>
+<script src="Metier/Finance.js"></script>
 </head>
-
-<body>
+<body onload="selectCoach();selectCondidat()">
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -109,7 +34,7 @@
             <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> <a href="index.html" class="btn btn-danger square-btn-adjust">Logout</a>
+font-size: 16px;"> <a href="#" class="btn btn-danger square-btn-adjust">Logout</a>
             </div>
         </nav>
         <!-- /. NAV TOP  -->
@@ -131,7 +56,7 @@ font-size: 16px;"> <a href="index.html" class="btn btn-danger square-btn-adjust"
                             <a  href="Personnel.html"><i class="fa fa-qrcode fa-3x"></i> Personnels</a>
                         </li>	
                           <li  >
-                                <a  href="Candidats.html"><i class="fa fa-table fa-3x"></i> Candidats</a>
+                                <a  href="Condidats.html"><i class="fa fa-table fa-3x"></i> Condidats</a>
                             </li>
                         <li  >
                             <a  class="active-menu" href="finance.html"><i class="fa fa-edit fa-3x"></i> Finance </a>
@@ -149,61 +74,43 @@ font-size: 16px;"> <a href="index.html" class="btn btn-danger square-btn-adjust"
         <div id="page-wrapper">
             <div id="page-inner">
                 <fieldset>
-                    <legend>Finance:</legend>
                     <div class="row">
-                        <div>
-                           
+                        <div>   
                                 <div class="tab">
-                                    <button class="tablinks" onclick="openCity(event, 'candidat')">Candidats</button>
+                                    <button class="tablinks" onclick="openCity(event, 'condidat')">Condidats</button>
                                     <button class="tablinks" onclick="openCity(event, 'personnel')">Personnels</button>
-              
                                   </div>
-                                  
-                                  <div id="candidat" class="tabcontent">
-                                    <h3>Candidat</h3>
+                                  <div id="condidat" class="tabcontent">
+                                    <h3>Condidat</h3>
                                     <div class="form-group"> 
-                                        <select class="form-control">
-                                             <option>Select Candidat </option>
-                                            <option>Coash One </option>
-                                            <option>Coash Two  </option>
-                                            <option>Coash Three  </option>
-                                            <option>Coash Four  </option>
+                                        <select class="form-control" id="listeCandidat" >
+                                              <option>Select Condidat </option> 
                                         </select>
                                     </div>
-                                
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">Dt</span>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" id="montantC">
                                         <span class="input-group-addon">.00</span>
                                     </div>
-                                    <button type="reset" class="btn btn-primary">Annuler</button>
-    
-                                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                                    <button type="button" class="btn btn-success btn-sm" onclick="addFinanceC()">Ajouter</button>
+                                    <button type="reset" class="btn btn-primary btn-sm">Annuler</button>
                                   </div>
                                   
                                   <div id="personnel" class="tabcontent">
                                     <h3>Personnel</h3>
-                                    <div class="form-group"> 
-                                        <select class="form-control">
-                                             <option>Select Personnel </option>
-                                            <option>Coash One </option>
-                                            <option>Coash Two  </option>
-                                            <option>Coash Three  </option>
-                                            <option>Coash Four  </option>
-                                        </select>
+                                    <div class="form-group" > 
+                                        <select class="form-control"  id="listeCoash" >
+                                        <option >Choose a Coash</option>
+                                         </select>
                                     </div>
-                                
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">Dt</span>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" id="montant">
                                         <span class="input-group-addon">.00</span>
                                     </div>
-                                    <button type="reset" class="btn btn-primary">Annuler</button>
-    
-                                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                                    <button type="button" class="btn btn-success btn-sm" onclick="addFinance()">Ajouter</button>
+                                    <button type="reset" class="btn btn-primary btn-sm">Annuler</button>
                                   </div>
-                                  
-                             
                         </div>
                     </div>
                 </fieldset>
@@ -219,7 +126,7 @@ font-size: 16px;"> <a href="index.html" class="btn btn-danger square-btn-adjust"
         <!-- METISMENU SCRIPTS -->
         <script src="assets/js/jquery.metisMenu.js"></script>
         <!-- CUSTOM SCRIPTS -->
-        <script src="assets/js/custom.js"></script>
+       
         <script>
             function openCity(evt, cityName) {
               var i, tabcontent, tablinks;

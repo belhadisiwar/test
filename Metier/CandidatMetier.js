@@ -1,6 +1,5 @@
 
 var Candidats = {
-
     nom: "",
     prenom: "",
     email: "",
@@ -18,7 +17,6 @@ function ajoutCandidat() {
     Candidats.nom = document.getElementById("nomc").value;
     Candidats.level = document.getElementById("levelc").value;
     Candidats.adress = document.getElementById("addrc").value;
-
     if (tableau == null) {
         tableau = []
     }
@@ -36,7 +34,6 @@ function ajoutCandidat() {
     document.getElementById("nomc").value = null;
     document.getElementById("levelc").value = null;
     document.getElementById("addrc").value = null;
-
     location.href = "./Candidats.html";
 }
 function show() {
@@ -53,20 +50,17 @@ function show() {
     var htmlc = '';
     for (let index = 0; index < ERP.Candidat.length; index++) {
         htmlc += '<div class="col-md-4 col-sm-4">'
-        htmlc += '<div class="panel panel-success">'
-        htmlc += '<div class="panel-heading">' + ERP.Candidat[index].idc + '</div>'
+        htmlc += '<div class="panel panel-primary">'
+        htmlc += '<div class="panel-heading">' + ERP.Candidat[index].nom +"  "+ ERP.Candidat[index].prenom + '</div>'
         htmlc += '<div class="panel-body">'
-        htmlc += '<p>' + ERP.Candidat[index].nom + '</p>'
-        htmlc += '<p>' + ERP.Candidat[index].prenom + '</p>'
-        htmlc += '<p>' + ERP.Candidat[index].email + '</p>'
-        htmlc += '<p>' + ERP.Candidat[index].adress + '</p>'
-        htmlc += '<p>' + ERP.Candidat[index].level + '</p>'
+        htmlc += '<p> <strong>Email :</strong>' + ERP.Candidat[index].email + '</p>'
+        htmlc += '<p><strong>Addresse :</strong>' + ERP.Candidat[index].adress + '</p>'
+        htmlc += '<p><strong>Level :</strong>' + ERP.Candidat[index].level + '</p>'
         htmlc += '</div>'
         htmlc += '<div class="panel-footer">'
-        htmlc += '<p>' + ERP.Candidat[index].tel + '</p>'
-        htmlc += '<p><button onclick="modifier(' + ERP.Candidat[index].idc + ')">modif</button>'
-        htmlc += '<p><button onclick="supprimer(this)">supp</button>'
-
+        htmlc += '<p><strong>Tel :</strong>' + ERP.Candidat[index].tel + '</p>'
+        htmlc += '<p><button class="btn btn-success btn-sm" onclick="modifier(' + ERP.Candidat[index].idc + ')"><i class="fa fa-edit "></i>modifier</button>&nbsp;'
+        htmlc += '<button class="btn btn-danger btn-sm" onclick="supprimer(this)"><i class="fa fa-trash"></i>supprimer</button></p>'
         htmlc += '</div>'
         htmlc += '</div>'
         htmlc += '</div>'
@@ -127,14 +121,27 @@ function remplir() {
     }
 }
 function compteur() {
-
-    var tab = JSON.parse(localStorage.getItem('ERP'));
-    var nbf = tab[0].length;
-    var nbm = tab[1].length;
-       var nbco=tab[2].length;
-    var nbcan = tab[3].length;
-    document.getElementById("f").innerHTML = nbf;
-    document.getElementById("man").innerHTML = nbm;
-       document.getElementById("co").innerHTML=nbco;
-    document.getElementById("can").innerHTML = nbcan;
-}
+    var nbf=0;
+    var nbm=0;
+    var nbco=0;
+    var nbcan=0;
+        var tab = JSON.parse(localStorage.getItem('ERP'));
+        if(tab!=null){
+            if(tab[0]!=null){
+                nbf = tab[0].length;
+            }
+            if(tab[1]!=null){
+                nbm = tab[1].length;
+            }
+            if(tab[2]!=null){
+                nbco=tab[2].length;
+            }
+            if(tab[3]!=null){
+                 nbcan = tab[3].length;
+            }
+        } 
+        document.getElementById("f").innerHTML = nbf;
+        document.getElementById("man").innerHTML = nbm;
+           document.getElementById("co").innerHTML=nbco;
+        document.getElementById("can").innerHTML = nbcan;    
+    }

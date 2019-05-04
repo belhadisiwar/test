@@ -65,23 +65,20 @@ class CoashMetier {
             html += '<div class="col-md-4 col-sm-4">'
             html += '<div class="panel panel-primary">'
             html += '<div class="panel-heading">'
-            html += ERP.Coash[i].nom
-            html += ERP.Coash[i].prenom
+            html += ERP.Coash[i].nom +" "+ ERP.Coash[i].prenom
             html += '</div>'
             html += '<div class="panel-body"><p>'
             html+= ERP.Coash[i].email
             html+= '</p><p>'
-            html+=  ERP.Coash[i].tel 
-            html+='</p><p>'
             html+= ERP.Coash[i].address 
             html+='</p><p>'
             html+= ERP.Coash[i].categorie 
             html+= '</p>'
-            html += '<p><button onclick="coashMetier.update(' + ERP.Coash[i].id + ')">U</button>'
-            html += '<button onclick="coashMetier.delete(' + ERP.Coash[i].id + ')" >D</button></p>'
+            html += '<p><button class="btn btn-success btn-sm" onclick="coashMetier.update(' + ERP.Coash[i].id + ')"><i class="fa fa-edit "></i>modifier</button>&nbsp;'
+            html += '<button class="btn btn-danger btn-sm" onclick="coashMetier.delete(' + ERP.Coash[i].id + ')" ><i class="fa fa-trash"></i>supprimer</button></p>'
             html += '</div>'
             html += '<div class="panel-footer">'
-            html += "Tel : 40.537.808"
+            html += ERP.Coash[i].tel
             html += '</div>'
             html += '</div>'
             html += '</div>'

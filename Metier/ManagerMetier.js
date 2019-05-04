@@ -68,23 +68,19 @@ class ManagerMetier {
             html += '<div class="col-md-4 col-sm-4">'
             html += '<div class="panel panel-primary">'
             html += '<div class="panel-heading">'
-            html += ERP.Manager[i].nom
-            html += ERP.Manager[i].prenom
+            html += ERP.Manager[i].nom +" "+ ERP.Manager[i].prenom
             html += '</div>'
             html += '<div class="panel-body"><p>'
-            html+= ERP.Manager[i].email
-            html+= '</p><p>'
-            html+=  ERP.Manager[i].tel 
-            html+='</p><p>'
+            html+='</p><p><strong>Addresse: </strong>'
             html+= ERP.Manager[i].address 
-            html+='</p><p>'
+            html+='</p><p><strong>Categorie: </strong>'
             html+= ERP.Manager[i].categorie 
             html+= '</p>'
-            html += '<p><button onclick="ManagerMetier.update(' + ERP.Manager[i].id + ')">U</button>'
-            html += '<button onclick="ManagerMetier.delete(' + ERP.Manager[i].id + ')" >D</button></p>'
+            html += '<p><button class="btn btn-success btn-sm"onclick="ManagerMetier.update(' + ERP.Manager[i].id + ')"><i class="fa fa-edit "></i>modifier</button>&nbsp;'
+            html += '<button class="btn btn-danger btn-sm" onclick="ManagerMetier.delete(' + ERP.Manager[i].id + ')" ><i class="fa fa-trash"></i>supprimer</button></p>'
             html += '</div>'
             html += '<div class="panel-footer">'
-            html += "Tel : 40.537.808"
+            html += '<p><strong>Tel: </strong>'+ERP.Manager[i].tel+'</p>'
             html += '</div>'
             html += '</div>'
             html += '</div>'

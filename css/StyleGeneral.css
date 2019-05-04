@@ -1,0 +1,59 @@
+#center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.button {
+    background-color: gray;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+     
+    font-size: 20px;
+    float: right;
+  }
+  fieldset 
+      {
+          border: 1px solid #ddd !important;
+          margin: 0; 
+          padding: 10px;       
+          position: relative;
+          border-radius:4px;
+          background-color:#f5f5f5;
+          padding-left:10px!important;
+      }	
+      
+          legend
+          {
+              font-size:14px;
+              font-weight:bold;
+              margin-bottom: 0px; 
+              width: 35%; 
+              border: 1px solid #ddd;
+              border-radius: 4px; 
+              padding: 5px 5px 5px 10px; 
+              background-color: #ffffff;
+          }
+          .element {
+            position: relative;
+        }
+         
+        /*replace the content value with the
+        corresponding value from the list below*/
+         
+        .element:before {
+            content: "\f000";
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: inherit;
+        /*--adjust as necessary--*/
+            color: #000;
+            font-size: 18px;
+            padding-right: 0.5em;
+            position: absolute;
+            top: 10px;
+            left: 0;
+        }

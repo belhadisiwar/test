@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,6 +14,8 @@
     <link href="assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' 
+    integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'/>
 </head>
 
 <body onload="compteur()">
@@ -27,12 +28,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Five Points</a>
+                <a class="navbar-brand" href="index.html">Five Points Erp</a>
             </div>
-            <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a>
+            <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
+                <a onclick="location.href='./login/login.html'" class="btn btn-danger square-btn-adjust">Logout</a>
             </div>
         </nav>
         <!-- /. NAV TOP  -->
@@ -42,44 +41,40 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a
                     <li class="text-center">
                         <img src="assets/img/find_user.png" class="user-image img-responsive" />
                     </li>
-
-
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard fa-3x"></i> Acceuil</a>
+                        <a  href="index.html"><i class='fas fa-home' style='font-size:36px;color:brown'></i> Acceuil</a>
                     </li>
                     <li>
-                        <a  href="Formation.html"><i class="fa fa-book"></i> Formation</a>
+                        <a  href="Formation.html"><i class="fas fa-laptop-code" style='font-size:36px'></i> Formation</a>
                     </li>
                     <li>
-                        <a href="Personnel.html"><i class="fa fa-user"></i> Personnels</a>
+                        <a href="Personnel.html"><i class="fa fa-users" style='font-size:36px'></i> Personnels</a>
                     </li>
                     <li>
-                            <a   href="Candidats.html"><i class="fas fa-user"></i> Candidats</a>
+                            <a   href="Candidats.html"><i class="fas fa-user-graduate" style='font-size:36px'></i> Candidats</a>
                         </li>
                     <li>
-                        <a href="finance.html"><i class="fa fa-edit fa-3x"></i> Finance </a>
+                        <a href="finance.html"><i class='fas fa-money-check-alt' style='font-size:36px'></i> Finance </a>
                     </li>
                     <li>
                             <a href="conge.html"><i class="fa fa-edit fa-3x"></i> Conge </a>
                         </li>
                 </ul>
-
             </div>
-
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Admin Five Points</h2>
+                        <h2>Five Points</h2>
                         <h5>Group Paddle </h5>
                     </div>
                 </div>
                 <!-- /. ROW  -->
                 <hr />
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="col-md-3 col-sm-6 col-xs-6"onclick="location.href='Formation.html'">
                         <div class="panel panel-back noti-box">
                             <span class="icon-box bg-color-red set-icon">
                                 <i class="fa fa-book"></i>
@@ -90,7 +85,7 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="col-md-3 col-sm-6 col-xs-6"onclick="location.href='Personnel.html'">
                         <div class="panel panel-back noti-box">
                             <span class="icon-box bg-color-green set-icon">
                                 <i class="fa fa-user"></i>
@@ -101,10 +96,10 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="col-md-3 col-sm-6 col-xs-6"onclick="location.href='Personnel.html'">
                         <div class="panel panel-back noti-box">
                             <span class="icon-box bg-color-blue set-icon">
-                                <i class="fa fa-users"></i>
+                                <i class="fas fa-chalkboard-teacher"></i>
                             </span>
                             <div class="text-box">
                                 <p class="main-text" id="co"></p>
@@ -112,21 +107,18 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="col-md-3 col-sm-6 col-xs-6"onclick="location.href='Candidats.html'">
                         <div class="panel panel-back noti-box">
                             <span class="icon-box bg-color-brown set-icon">
-                                    <i class="fa fa-search"></i>
+                                    <i class='fas fa-user-graduate' ></i>
                             </span>
                             <div class="text-box">
-                                    <div class="main-text" id="can"></div>
+                                    <p class="main-text" id="can"></p>
                                 <p class="text-muted">Candidats</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
                 <!-- /. WRAPPER  -->
                 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
                 <!-- JQUERY SCRIPTS -->
@@ -142,8 +134,6 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">Logout</a
                 <!-- <script src="assets/js/custom.js"></script> -->
                 <script src="Metier/CandidatMetier.js"></script>
              <script src="Enties/LocalStorage.js"></script>
-                
-
 
 </body>
 

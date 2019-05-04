@@ -1,59 +1,22 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-      <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Free Bootstrap Admin Template : Binary Admin</title>
-	<!-- BOOTSTRAP STYLES-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
+    <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
+    <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
-     <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-   <style type="text/css">
-    #center {
-        margin: auto;
-        width: 50%;
-        padding: 10px;
-    }
-
-    .button {
-        background-color: gray;
-        border: none;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        text-decoration: none;
-
-        font-size: 20px;
-        float: right;
-    }
-
-    fieldset {
-        border: 1px solid #ddd !important;
-        margin: 0;
-        padding: 10px;
-        position: relative;
-        border-radius: 4px;
-        background-color: #f5f5f5;
-        padding-left: 10px !important;
-    }
-
-    legend {
-        font-size: 14px;
-        font-weight: bold;
-        margin-bottom: 0px;
-        width: 35%;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 5px 5px 5px 10px;
-        background-color: #ffffff;
-    }
-</style>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="css/StyleGeneral.css">
 </head>
-<body onload="CongeMetier.Consult()">
+<body onload="CongeMetier.Consult() ; CongeMetier.show()">
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -63,96 +26,122 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Binary admin</a> 
+                <a class="navbar-brand" href="index.html">Binary admin</a>
             </div>
-  <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="index.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
-        </nav>   
-           <!-- /. NAV TOP  -->
-                <nav class="navbar-default navbar-side" role="navigation">
+            <div style="color: white; padding: 15px 50px 5px 50px;float: right;font-size: 16px;"> 
+                Last access : 30 May 2014 &nbsp; <a href="./index.html"
+                    class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-				<li class="text-center">
-                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
-					</li>
-				
-					
-                    <li>
-                        <a  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Acceuil</a>
-                    </li>
-                     <li>
-                        <a  href="tab-panel.html"><i class="fa fa-desktop fa-3x"></i> Formation</a>
+                    <li class="text-center">
+                        <img src="assets/img/find_user.png" class="user-image img-responsive" />
                     </li>
                     <li>
-                        <a  href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Personnels</a>
-                    </li>	
-                      <li  >
-                        <a  href="tab-panel.html"><i class="fa fa-table fa-3x"></i> Candidats</a>
+                        <a href="index.html"><i class="fa fa-dashboard fa-3x"></i> Acceuil</a>
                     </li>
-                    <li  >
-                        <a  href="finance.html"><i class="fa fa-edit fa-3x"></i> Finance </a>
-                    </li>			
-					
-					                   
                     <li>
-                            <a class="active-menu"  href="conge.html"><i class="fa fa-edit fa-3x"></i> Conge </a>
-                        </li>	
+                        <a href="Formation.html"><i class="fa fa-desktop fa-3x"></i> Formation</a>
+                    </li>
+                    <li>
+                        <a href="Personnel.html"><i class="fa fa-qrcode fa-3x"></i> Personnels</a>
+                    </li>
+                    <li>
+                        <a href="Condidats.html"><i class="fa fa-table fa-3x"></i> Candidats</a>
+                    </li>
+                    <li>
+                        <a href="finance.html"><i class="fa fa-edit fa-3x"></i> Finance </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="conge.html"><i class="fa fa-edit fa-3x"></i> Conge </a>
+                    </li>
                 </ul>
-               
             </div>
-            
-        </nav>  
+        </nav>
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper" >
+        <div id="page-wrapper">
             <div id="page-inner">
-                    <fieldset>
-                            <legend>Ajout Comge:</legend>
+                <fieldset>
+                    <legend>Ajout Comge:</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Select Example</label>
+                                    <select class="form-control" id="personne" onchange="CongeMetier.selection()">
+                                    </select>
+                                    <label>Date Debut</label>
+                                    <input type="date" class="form-control" id="dateD" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Date fin</label>
+                                    <input type="date" class="form-control" id="dateF" /> </div>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="CongeMetier.add()" 
+                                class="btn btn-default"> Ajouter</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /. ROW  -->
+                    <hr />
+                </fieldset>
                 <div class="row">
                     <div class="col-md-12">
-                        <form role="form">
-                                <div class="form-group">
-                                        <label>Select Example</label>
-                                        <select class="form-control">
-                                            <option>One Vale</option>
-                                            <option>Two Vale</option>
-                                            <option>Three Vale</option>
-                                            <option>Four Vale</option>
-                                        </select>
-                                 <label>Date Debut</label>
-                                 <input type="date" class="form-control" />
-                             </div>
-                             <div class="form-group">
-                                <label>Date fiin</label>
-                                <input type="date" class="form-control" />                            </div>
-                            <button type="submit" class="btn btn-default">Submit Button</button>
-
-                        </form>
+                            <!--    Context Classes  -->
+                           <div class="panel panel-default">                             
+                               <div class="panel-heading">
+                                   Context Classes
+                               </div>                              
+                               <div class="panel-body">
+                                   <div class="table-responsive">
+                                       <table class="table" id="table">
+                                           <thead>
+                                               <tr>
+                                                   <th>#</th>
+                                                   <th>Date Debut</th>
+                                                   <th>Date fin</th>
+                                                   <th>Manager/coash</th>
+                                               </tr>
+                                           </thead>
+                                           <tbody>
+                                              
+                                               <!-- <tr class="warning">
+                                                   <td>3</td>
+                                                   <td>Larry</td>
+                                                   <td>the Bird</td>
+                                                   <td>@twitter</td>
+                                               </tr>
+                                               <tr class="danger">
+                                                   <td>4</td>
+                                                   <td>John</td>
+                                                   <td>Smith</td>
+                                                   <td>@jsmith</td>
+                                               </tr> -->
+                                           </tbody>
+                                       </table>
+                                   </div>
+                               </div>
                     </div>
                 </div>
-                 <!-- /. ROW  -->
-                 <hr />
-            </fieldset>
-    </div>
-             <!-- /. PAGE INNER  -->
+                <!-- /. ROW  -->
+                <hr />
             </div>
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
-    <script src="Enties/Personne.js"></script>
-    <script src="Enties/Conge.js"></script>
-<script src="Enties/Manager.js"></script>
-<script src="Enties/Coash.js"></script>
-<script src="Enties/LocalStorage.js"></script>
-
-<script src="Metier/CongeMetier.js"></script>
-    
-   
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        <script src="assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- METISMENU SCRIPTS -->
+        <script src="assets/js/jquery.metisMenu.js"></script>
+        <script src="Enties/Personne.js"></script>
+        <script src="Enties/Conge.js"></script>
+        <script src="Enties/Manager.js"></script>
+        <script src="Enties/Coash.js"></script>
+        <script src="Enties/LocalStorage.js"></script>
+        <script src="Metier/CongeMetier.js"></script>
 </body>
 </html>

@@ -1,20 +1,21 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Free Bootstrap Admin Template : Binary Admin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- BOOTSTRAP STYLES-->
+	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLES-->
+     <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- CUSTOM STYLES-->
+        <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
-    <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" type="text/css" href="css/StyleGeneral.css">
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' 
+   integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+   <link href="css/StyleGeneral.css" rel="stylesheet" />
+
 </head>
 <body onload="CongeMetier.Consult() ; CongeMetier.show()">
     <div id="wrapper">
@@ -26,42 +27,41 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Binary admin</a>
+                <a class="navbar-brand" href="index.html">Five Points Erp</a> 
             </div>
-            <div style="color: white; padding: 15px 50px 5px 50px;float: right;font-size: 16px;"> 
-                Last access : 30 May 2014 &nbsp; <a href="./index.html"
-                    class="btn btn-danger square-btn-adjust">Logout</a> </div>
-        </nav>
-        <!-- /. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
+  <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">  &nbsp; 
+    <a href="Login/login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                    <li class="text-center">
-                        <img src="assets/img/find_user.png" class="user-image img-responsive" />
+				    <li class="text-center">
+                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+					</li>
+                    <li>
+                        <a  href="index.html"><i class='fas fa-home' style='font-size:36px'></i> Acceuil</a>
+                    </li>
+                     <li>
+                        <a  href="Formation.html"><i class="fas fa-laptop-code" style='font-size:36px'></i> Formation</a>
                     </li>
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard fa-3x"></i> Acceuil</a>
+                        <a  href="Personnel.html"><i class="fa fa-users" style='font-size:36px'></i> Personnels</a>
+                    </li>	
+                      <li  >
+                        <a  href="Candidats.html"><i class="fas fa-user-graduate" style='font-size:36px'></i> Candidats</a>
                     </li>
+                    <li  >
+                        <a  href="finance.html"><i class='fas fa-money-check-alt' style='font-size:36px'></i> Finance </a>
+                    </li>						                   
                     <li>
-                        <a href="Formation.html"><i class="fa fa-desktop fa-3x"></i> Formation</a>
-                    </li>
-                    <li>
-                        <a href="Personnel.html"><i class="fa fa-qrcode fa-3x"></i> Personnels</a>
-                    </li>
-                    <li>
-                        <a href="Condidats.html"><i class="fa fa-table fa-3x"></i> Candidats</a>
-                    </li>
-                    <li>
-                        <a href="finance.html"><i class="fa fa-edit fa-3x"></i> Finance </a>
-                    </li>
-                    <li>
-                        <a class="active-menu" href="conge.html"><i class="fa fa-edit fa-3x"></i> Conge </a>
-                    </li>
+                        <a  href="conge.html"><i class="fa fa-edit fa-3x" style="color:brown"></i> Conge </a>
+                    </li>	
                 </ul>
             </div>
-        </nav>
+        </nav>  
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper">
+        <div id="page-wrapper" >
             <div id="page-inner">
                 <fieldset>
                     <legend>Ajout Comge:</legend>
@@ -71,6 +71,7 @@
                                 <div class="form-group">
                                     <label>Select Example</label>
                                     <select class="form-control" id="personne" onchange="CongeMetier.selection()">
+
                                     </select>
                                     <label>Date Debut</label>
                                     <input type="date" class="form-control" id="dateD" />
@@ -78,8 +79,8 @@
                                 <div class="form-group">
                                     <label>Date fin</label>
                                     <input type="date" class="form-control" id="dateF" /> </div>
-                                <button type="button" class="btn btn-primary btn-sm" onclick="CongeMetier.add()" 
-                                class="btn btn-default"> Ajouter</button>
+                                <button type="button" onclick="CongeMetier.add()" class="btn btn-default">Ajouter</button>
+
                             </form>
                         </div>
                     </div>
@@ -88,11 +89,14 @@
                 </fieldset>
                 <div class="row">
                     <div class="col-md-12">
+                      
                             <!--    Context Classes  -->
-                           <div class="panel panel-default">                             
+                           <div class="panel panel-default">
+                              
                                <div class="panel-heading">
                                    Context Classes
-                               </div>                              
+                               </div>
+                               
                                <div class="panel-body">
                                    <div class="table-responsive">
                                        <table class="table" id="table">
@@ -101,7 +105,7 @@
                                                    <th>#</th>
                                                    <th>Date Debut</th>
                                                    <th>Date fin</th>
-                                                   <th>Manager/coash</th>
+                                                   <th>Manager/coash id</th>
                                                </tr>
                                            </thead>
                                            <tbody>
@@ -122,26 +126,30 @@
                                        </table>
                                    </div>
                                </div>
+                          
                     </div>
                 </div>
                 <!-- /. ROW  -->
                 <hr />
+
             </div>
-            <!-- /. PAGE INNER  -->
-        </div>
-        <!-- /. WRAPPER  -->
-        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-        <!-- JQUERY SCRIPTS -->
-        <script src="assets/js/jquery-1.10.2.js"></script>
-        <!-- BOOTSTRAP SCRIPTS -->
-        <script src="assets/js/bootstrap.min.js"></script>
-        <!-- METISMENU SCRIPTS -->
-        <script src="assets/js/jquery.metisMenu.js"></script>
-        <script src="Enties/Personne.js"></script>
-        <script src="Enties/Conge.js"></script>
-        <script src="Enties/Manager.js"></script>
-        <script src="Enties/Coash.js"></script>
-        <script src="Enties/LocalStorage.js"></script>
-        <script src="Metier/CongeMetier.js"></script>
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="Enties/Personne.js"></script>
+    <script src="Enties/Conge.js"></script>
+    <script src="Enties/Manager.js"></script>
+    <script src="Enties/Coash.js"></script>
+    <script src="Enties/LocalStorage.js"></script>
+
+    <script src="Metier/CongeMetier.js"></script>
 </body>
 </html>

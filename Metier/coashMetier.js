@@ -67,13 +67,10 @@ class CoashMetier {
             html += '<div class="panel-heading">'
             html += ERP.Coash[i].nom +" "+ ERP.Coash[i].prenom
             html += '</div>'
-            html += '<div class="panel-body"><p>'
-            html+= ERP.Coash[i].email
-            html+= '</p><p>'
-            html+= ERP.Coash[i].address 
-            html+='</p><p>'
-            html+= ERP.Coash[i].categorie 
-            html+= '</p>'
+            html += '<div class="panel-body">'
+            html+='<p> <strong>Email :</strong>'+ ERP.Coash[i].email +'</p>'
+            html+= '<p><strong>Addresse :</strong>'+ ERP.Coash[i].address +'</p>' 
+            html+='<p><strong>Categorie :</strong>'+ ERP.Coash[i].categorie +'</p>'
             html += '<p><button class="btn btn-success btn-sm" onclick="coashMetier.update(' + ERP.Coash[i].id + ')"><i class="fa fa-edit "></i>modifier</button>&nbsp;'
             html += '<button class="btn btn-danger btn-sm" onclick="coashMetier.delete(' + ERP.Coash[i].id + ')" ><i class="fa fa-trash"></i>supprimer</button></p>'
             html += '</div>'

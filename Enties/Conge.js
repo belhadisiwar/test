@@ -6,6 +6,6 @@ class Conge  {
        this.dateD=dateD;
        this.dateF=dateF;
         this.idp = idp;
-
+        
     }
 }

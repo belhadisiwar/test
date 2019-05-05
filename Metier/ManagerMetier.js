@@ -70,12 +70,10 @@ class ManagerMetier {
             html += '<div class="panel-heading">'
             html += ERP.Manager[i].nom +" "+ ERP.Manager[i].prenom
             html += '</div>'
-            html += '<div class="panel-body"><p>'
-            html+='</p><p><strong>Addresse: </strong>'
-            html+= ERP.Manager[i].address 
-            html+='</p><p><strong>Categorie: </strong>'
-            html+= ERP.Manager[i].categorie 
-            html+= '</p>'
+            html += '<div class="panel-body">'
+            html+='<p><strong>Email: </strong>'+ ERP.Manager[i].email +'</p>'
+            html+='<p><strong>Addresse: </strong>'+ERP.Manager[i].address +'</p>'
+            html+='<p><strong>Categorie: </strong>'+ ERP.Manager[i].categorie +'</p>'
             html += '<p><button class="btn btn-success btn-sm"onclick="ManagerMetier.update(' + ERP.Manager[i].id + ')"><i class="fa fa-edit "></i>modifier</button>&nbsp;'
             html += '<button class="btn btn-danger btn-sm" onclick="ManagerMetier.delete(' + ERP.Manager[i].id + ')" ><i class="fa fa-trash"></i>supprimer</button></p>'
             html += '</div>'
